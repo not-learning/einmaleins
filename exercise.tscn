@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs5ondoqhx7w0" path="res://exercise.gd" id="1_7w0te"]
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="ExMargin" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
