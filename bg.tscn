@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cxhc5k68ni0bg"]
+
+[node name="Bg" type="ColorRect"]
+offset_right = 40.0
+offset_bottom = 40.0

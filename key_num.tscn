@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjrcq6onbx8tg"]
+[gd_scene load_steps=7 format=3 uid="uid://bjrcq6onbx8tg"]
 
 [ext_resource type="Script" uid="uid://c51c2ouwpobqi" path="res://key_num.gd" id="1_pkc0r"]
 
@@ -14,6 +14,25 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35j6s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkc0r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0quf4"]
+bg_color = Color(1, 1, 1, 0.188235)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id="Theme_0quf4"]
+default_font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_35j6s")
+Button/styles/normal = SubResource("StyleBoxFlat_pkc0r")
+Button/styles/pressed = SubResource("StyleBoxFlat_0quf4")
 
 [node name="KeyMargin" type="MarginContainer"]
 anchors_preset = 8
@@ -33,6 +52,8 @@ script = SubResource("GDScript_pkc0r")
 
 [node name="KeyNum" type="Button" parent="."]
 layout_mode = 2
+focus_mode = 0
+theme = SubResource("Theme_0quf4")
 action_mode = 0
 script = ExtResource("1_pkc0r")
 

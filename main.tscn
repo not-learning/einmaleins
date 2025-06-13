@@ -1,25 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnc7mbmkyyud"]
+[gd_scene load_steps=6 format=3 uid="uid://dnc7mbmkyyud"]
 
 [ext_resource type="PackedScene" uid="uid://b4ux8sr558ts5" path="res://xtable.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bcnre1k1ogd5m" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dqtjdgxtsokyj" path="res://exercise.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cxhc5k68ni0bg" path="res://bg.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d273utle5fn7" path="res://keypad.tscn" id="3_h2yge"]
 
-[node name="Main" type="VBoxContainer"]
+[node name="Node" type="Node"]
+
+[node name="Bg" parent="." instance=ExtResource("2_lquwl")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Main" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_1bvp3")
 
-[node name="Xtable" parent="." instance=ExtResource("1_0xm2m")]
+[node name="Xtable" parent="Main" instance=ExtResource("1_0xm2m")]
 layout_mode = 2
 
-[node name="ExMargin" parent="." instance=ExtResource("2_h2yge")]
+[node name="ExMargin" parent="Main" instance=ExtResource("2_h2yge")]
 layout_mode = 2
 
-[node name="KeypadMargin" parent="." instance=ExtResource("3_h2yge")]
+[node name="KeypadMargin" parent="Main" instance=ExtResource("3_h2yge")]
 layout_mode = 2
