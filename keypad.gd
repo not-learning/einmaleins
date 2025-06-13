@@ -40,4 +40,29 @@ func _on_send_num(num: int):
 	ans_upd.emit(ans, check)
 
 func _process(delta: float) -> void:
-	pass
+	check = false
+	if Input.is_action_just_pressed("kb_0"):
+		ans *= 10
+	if Input.is_action_just_pressed("kb_1"):
+		ans = 10*ans + 1
+	if Input.is_action_just_pressed("kb_2"):
+		ans = 10*ans + 2
+	if Input.is_action_just_pressed("kb_3"):
+		ans = 10*ans + 3
+	if Input.is_action_just_pressed("kb_4"):
+		ans = 10*ans + 4
+	if Input.is_action_just_pressed("kb_5"):
+		ans = 10*ans + 5
+	if Input.is_action_just_pressed("kb_6"):
+		ans = 10*ans + 6
+	if Input.is_action_just_pressed("kb_7"):
+		ans = 10*ans + 7
+	if Input.is_action_just_pressed("kb_8"):
+		ans = 10*ans + 8
+	if Input.is_action_just_pressed("kb_9"):
+		ans = 10*ans + 9
+	if Input.is_action_just_pressed("kb_erase"):
+		ans /= 10
+	if Input.is_action_just_pressed("kb_check"):
+		check = true
+	ans_upd.emit(ans, check)
