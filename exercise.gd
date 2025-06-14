@@ -15,6 +15,6 @@ func _process(_delta: float) -> void:
 	ex = "%d × %d = " % [a, b]
 	text = ex + str(ans)
 	if ans == a * b:
+		correct.emit(a, b)
 		a = randi() % 8 + 2
 		b = randi() % 8 + 2
-		correct.emit(a, b)
