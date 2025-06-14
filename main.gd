@@ -5,12 +5,12 @@ var kp: GridContainer
 var xt: Array[Node]
 
 func _ready() -> void:
-	kp = get_node("KeypadMargin/Keypad")
+	kp = find_child("Keypad")
 	kp.ans_upd.connect(_on_ans_upd)
-	ex = get_node("ExMargin/Exercise")
+	ex = find_child("Exercise")
 	ex.correct.connect(_on_correct)
-	var a := get_node("Xtable")
-	xt = a.get_child(0).get_children()
+	xt = get_node("Xtable/Xtable").get_children()
+	#xt = a.get_children()
 
 func _on_ans_upd(ans: int):
 	ex.ans = ans
@@ -20,8 +20,12 @@ func _on_correct(a: int, b: int):
 	ex.ans = 0
 	var i1 := 9*b + a-10
 	var i2 := 9*a + b-10
-	xt[i1].get_node("Mult").text = "✓"
-	xt[i2].get_node("Mult").text = "✓"
+	var xt1 := xt[i1].get_node("Mult")
+	var xt2 := xt[i2].get_node("Mult")
+	xt1.text = "✓"
+	xt1.set("theme_override_colors/font_color", Color.GREEN)
+	xt2.text = "✓"
+	xt2.set("theme_override_colors/font_color", Color.GREEN)
 
 func _process(delta: float) -> void:
 	pass
