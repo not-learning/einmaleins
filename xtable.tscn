@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cj4qu1optf0t8" path="res://xtable.gd" id="1_tt13t"]
 [ext_resource type="PackedScene" uid="uid://bcvt6up78uf5o" path="res://mult.tscn" id="2_v0xh4"]
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="XtableMargin" type="MarginContainer"]
 offset_right = 20.0
 offset_bottom = 20.0
 theme_override_constants/margin_left = 10

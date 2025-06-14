@@ -1,6 +1,6 @@
 extends GridContainer
 
-signal ans_upd(num: int, check: bool)
+signal ans_upd(num: int)
 
 @export var button_scene: PackedScene
 var ans: int
@@ -17,12 +17,12 @@ var strs := [
 	"7", "8", "9",
 	"4", "5", "6",
 	"1", "2", "3",
-	"⌫", "0", "✓",
+	" ", "0", "⌫",
 ]
 
 func _ready() -> void:
 	for i in 12:
-		var keyMarg = button_scene.instantiate()
+		var keyMarg = preload("res://key_num.tscn").instantiate()
 		add_child(keyMarg)
 		var btn = keyMarg.get_node("KeyNum")
 		btn.text = strs[i]
@@ -30,17 +30,13 @@ func _ready() -> void:
 		btn.send_num.connect(_on_send_num)
 
 func _on_send_num(num: int):
-	check = false
-	if num == 9:
+	if num == 11:
 		ans /= 10
-	elif num == 11:
-		check = true
 	else:
 		ans = nums[num] + 10*ans
-	ans_upd.emit(ans, check)
+	ans_upd.emit(ans)
 
-func _process(delta: float) -> void:
-	check = false
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("kb_0"):
 		ans *= 10
 	if Input.is_action_just_pressed("kb_1"):
@@ -63,6 +59,4 @@ func _process(delta: float) -> void:
 		ans = 10*ans + 9
 	if Input.is_action_just_pressed("kb_erase"):
 		ans /= 10
-	if Input.is_action_just_pressed("kb_check"):
-		check = true
-	ans_upd.emit(ans, check)
+	ans_upd.emit(ans)

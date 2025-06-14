@@ -1,11 +1,10 @@
 extends Label
 
-signal correct
+signal correct(a: int, b: int)
 
 var a: int
 var b: int
 var ans: int
-var check: bool
 var ex: String
 
 func _ready() -> void:
@@ -15,7 +14,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	ex = "%d × %d = " % [a, b]
 	text = ex + str(ans)
-	if check && ans == a * b:
+	if ans == a * b:
 		a = randi() % 8 + 2
 		b = randi() % 8 + 2
-		correct.emit()
+		correct.emit(a, b)

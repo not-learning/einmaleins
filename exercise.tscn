@@ -5,12 +5,14 @@
 [node name="ExMargin" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Exercise" type="Label" parent="."]
 layout_mode = 2
 theme_override_font_sizes/font_size = 75
+clip_text = true
 script = ExtResource("1_7w0te")
