@@ -1,6 +1,7 @@
 extends Label
 
 signal correct(a: int, b: int)
+signal done
 
 var arr: Array[int]
 var n: int
@@ -24,4 +25,4 @@ func _process(_delta: float) -> void:
 		if n > 63:
 			n = 0
 			arr.shuffle()
-			print("Done!")
+			done.emit()
