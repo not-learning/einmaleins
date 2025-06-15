@@ -10,11 +10,39 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Stopwatch" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Sandwich" type="Button" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "≣"
+
+[node name="Stopwatch" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
 script = ExtResource("1_jewno")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+
+[node name="Restart" type="Button" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "⟲"
+
+[connection signal="button_up" from="HBoxContainer/MarginContainer2/Restart" to="HBoxContainer/Stopwatch" method="_on_restart_button_up"]

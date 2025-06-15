@@ -23,6 +23,10 @@ func _process(_delta: float) -> void:
 		correct.emit(a, b)
 		n += 1
 		if n > 63:
-			n = 0
-			arr.shuffle()
+			print("Done!")
+			_restart()
 			done.emit()
+
+func _restart():
+	n = 0
+	arr.shuffle()

@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
@@ -57,4 +57,4 @@ theme = SubResource("Theme_0quf4")
 action_mode = 0
 script = ExtResource("1_pkc0r")
 
-[connection signal="button_down" from="KeyNum" to="KeyNum" method="_on_button_down"]
+[connection signal="button_up" from="KeyNum" to="KeyNum" method="_on_button_up"]

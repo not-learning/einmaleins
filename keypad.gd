@@ -28,6 +28,8 @@ func _ready() -> void:
 		btn.text = strs[i]
 		btn.num = i
 		btn.send_num.connect(_on_send_num)
+		if i == 9:
+			btn.set("disabled", true)
 
 func _on_send_num(num: int):
 	if num == 11:
