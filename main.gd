@@ -10,7 +10,6 @@ func _ready() -> void:
 	ex = find_child("Exercise")
 	ex.correct.connect(_on_correct)
 	xt = get_node("Xtable/Xtable").get_children()
-	#xt = a.get_children()
 
 func _on_ans_upd(ans: int):
 	ex.ans = ans
@@ -21,11 +20,8 @@ func _on_correct(a: int, b: int):
 	var i1 := 9*b + a-10
 	var i2 := 9*a + b-10
 	var xt1 := xt[i1].get_node("Mult")
-	var xt2 := xt[i2].get_node("Mult")
 	xt1.text = "✓"
 	xt1.set("theme_override_colors/font_color", Color.GREEN)
-	xt2.text = "✓"
-	xt2.set("theme_override_colors/font_color", Color.GREEN)
 
 func _process(delta: float) -> void:
 	pass
