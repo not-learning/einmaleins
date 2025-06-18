@@ -8,8 +8,6 @@ func _ready() -> void:
 			var mulUp = preload("res://mult.tscn").instantiate()
 			var mult = mulUp.get_node("Mult")
 			mult.text = str((i+1) * (j+1))
-			if i < 1 || j < 1:
-				mult.set("theme_override_colors/font_color", Color.DIM_GRAY)
 			add_child(mulUp)
 
 func _set_nums() -> void:
@@ -19,6 +17,7 @@ func _set_nums() -> void:
 			mult.text = str((i+1) * (j+1))
 			if i > 0 && j > 0:
 				mult.set("theme_override_colors/font_color", Color.WHITE)
+				mult.set("theme_override_font_sizes/font_size", 15)
 
 func _process(_delta: float) -> void:
 	pass

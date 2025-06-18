@@ -3,15 +3,13 @@
 [ext_resource type="Script" uid="uid://bhsfvjm7ild4x" path="res://stopwatch.gd" id="1_jewno"]
 
 [node name="StopwatchMargin" type="MarginContainer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -25,6 +23,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
+toggle_mode = true
 text = "≣"
 
 [node name="Stopwatch" type="Label" parent="HBoxContainer"]
@@ -45,4 +44,5 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 50
 text = "⟲"
 
+[connection signal="toggled" from="HBoxContainer/MarginContainer/Sandwich" to="HBoxContainer/Stopwatch" method="_on_sandwich_toggled"]
 [connection signal="button_up" from="HBoxContainer/MarginContainer2/Restart" to="HBoxContainer/Stopwatch" method="_on_restart_button_up"]

@@ -15,17 +15,19 @@ func _ready() -> void:
 	arr.shuffle()
 
 func _process(_delta: float) -> void:
+	if n > 63:
+		done.emit()
+		text = ""
+		return
 	var a := arr[n] / 10
 	var b := arr[n] % 10
 	ex = "%d × %d = " % [a, b]
-	text = ex + str(ans)
+	var ss := ""
+	if ans > 0: ss = str(ans)
+	text = ex + ss
 	if ans == a * b:
 		correct.emit(a, b)
 		n += 1
-		if n > 63:
-			print("Done!")
-			_restart()
-			done.emit()
 
 func _restart():
 	n = 0
