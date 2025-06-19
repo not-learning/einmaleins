@@ -24,7 +24,6 @@ size_flags_horizontal = 4
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
 toggle_mode = true
-text = "≣"
 
 [node name="Stopwatch" type="Label" parent="HBoxContainer"]
 layout_mode = 2

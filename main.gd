@@ -13,7 +13,7 @@ func _ready() -> void:
 	stopwatch = find_child("Stopwatch")
 	stopwatch.restart.connect(_on_restart)
 	sandwich = find_child("Sandwich")
-	stopwatch.ex_list_show.connect(_on_ex_list_show)
+	stopwatch.toggle_ex_list_show.connect(_on_toggle_ex_list_show)
 	xtable = find_child("Xtable")
 	xtableChildren = xtable.get_children()
 	ex = find_child("Exercise")
@@ -27,15 +27,15 @@ func _ready() -> void:
 	exList._fill_ex_list(ex.arr)
 	$ExListMargin.set("visible", false)
 
-func _on_ex_list_show(b: bool):
+func _on_toggle_ex_list_show(b: bool):
 	if b:
-		sandwich.text = "⸽⸽⸽⸽⸽"
-		sandwich.set("theme_override_font_sizes/font_size", 25)
+		#sandwich.text = "⣿"
+		#sandwich.set("theme_override_font_sizes/font_size", 25)
 		$ExListMargin.set("visible", true)
 		$XtableMargin.set("visible", false)
 	else:
-		sandwich.text = "≣"
-		sandwich.set("theme_override_font_sizes/font_size", 50)
+		#sandwich.text = "≣"
+		#sandwich.set("theme_override_font_sizes/font_size", 50)
 		$ExListMargin.set("visible", false)
 		$XtableMargin.set("visible", true)
 

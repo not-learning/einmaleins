@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
+[gui]
+
+theme/custom_font="uid://be7ocfjq0v37i"
+
 [input]
 
 kb_0={

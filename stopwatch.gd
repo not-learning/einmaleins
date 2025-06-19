@@ -1,18 +1,19 @@
 extends Label
 
 signal restart
-signal ex_list_show(b: bool)
+signal toggle_ex_list_show(b: bool)
 
 var ms: float
 var done: bool
-#var sandwich: Button
+var ex_list_show: bool
+var sandwich: Button
 
 func _ready() -> void:
 	ms = 0
 	text = "0"
 	done = true
 	#sandwich = get_node("../").find_child("Sandwich")
-	#sandwich = get_node("/root/Node").find_child("Sandwich")
+	sandwich = get_node("/root/Node").find_child("Sandwich")
 
 func _process(delta: float) -> void:
 	if !done: ms += delta
@@ -20,7 +21,10 @@ func _process(delta: float) -> void:
 	fraction = fraction.erase(0)
 	var time := Time.get_time_string_from_unix_time(ms)
 	text = time + fraction
-#≣☰⠿⠿⣿⣿⸽⸽⸽⸽⸽
+	var sandwich_text := "≣"
+	if ex_list_show: sandwich_text = "⣿⣿"
+	sandwich.text = sandwich_text
+#≣☰⠿⠿⣿⣿
 
 func _on_restart_button_up() -> void:
 	ms = 0
@@ -28,4 +32,5 @@ func _on_restart_button_up() -> void:
 	restart.emit()
 
 func _on_sandwich_toggled(toggled_on: bool) -> void:
-	ex_list_show.emit(toggled_on)
+	ex_list_show = toggled_on
+	toggle_ex_list_show.emit(toggled_on)
