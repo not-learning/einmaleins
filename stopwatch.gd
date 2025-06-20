@@ -12,7 +12,6 @@ func _ready() -> void:
 	ms = 0
 	text = "0"
 	done = true
-	#sandwich = get_node("../").find_child("Sandwich")
 	sandwich = get_node("/root/Node").find_child("Sandwich")
 
 func _process(delta: float) -> void:
@@ -21,9 +20,12 @@ func _process(delta: float) -> void:
 	fraction = fraction.erase(0)
 	var time := Time.get_time_string_from_unix_time(ms)
 	text = time + fraction
-	var sandwich_text := "≣"
-	if ex_list_show: sandwich_text = "⣿⣿"
-	sandwich.text = sandwich_text
+	if ex_list_show:
+		sandwich.text = "⣿⣿"
+		sandwich.set("theme_override_font_sizes/font_size", 30)
+	else:
+		sandwich.text = "≣"
+		sandwich.set("theme_override_font_sizes/font_size", 50)
 #≣☰⠿⠿⣿⣿
 
 func _on_restart_button_up() -> void:
