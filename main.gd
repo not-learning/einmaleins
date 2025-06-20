@@ -5,7 +5,6 @@ var sandwich: Button
 var xtable: GridContainer
 var xtableChildren: Array[Node]
 var ex: Label
-#var exListMargin: MarginContainer
 var exList: VBoxContainer
 var kp: GridContainer
 
@@ -19,7 +18,6 @@ func _ready() -> void:
 	ex = find_child("Exercise")
 	ex.correct.connect(_on_correct)
 	ex.done.connect(_on_done)
-	#exListMargin = find_child("ExListMargin")
 	exList = find_child("ExList")
 	kp = find_child("Keypad")
 	kp.ans_upd.connect(_on_ans_upd)
@@ -29,13 +27,9 @@ func _ready() -> void:
 
 func _on_toggle_ex_list_show(b: bool):
 	if b:
-		#sandwich.text = "⣿"
-		#sandwich.set("theme_override_font_sizes/font_size", 25)
 		$ExListMargin.set("visible", true)
 		$XtableMargin.set("visible", false)
 	else:
-		#sandwich.text = "≣"
-		#sandwich.set("theme_override_font_sizes/font_size", 50)
 		$ExListMargin.set("visible", false)
 		$XtableMargin.set("visible", true)
 
